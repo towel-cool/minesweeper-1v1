@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+    font-family: 'VT323', monospace;
+    color: white;
+    background-color: #5A5A5A;
+}
+
+/* Board Styling */
+
+.hidden-cell {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    background-color: #61666D;
+}
+
+.hidden-cell:hover {
+    background-color: #92979D;
+}
+
+.flagged-cell {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    text-align: center;
+    color: red;
+    background-color: #61666D;
+    user-select: none;
+}
+
+.flagged-cell:hover {
+    background-color: #92979D;
+}
+
+.revealed-cell {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    font-size: 20px;
+    text-align: center;
+    background-color: #363B42;
+    user-select: none;
+}
+
+.revealed-cell:hover {
+    background-color: #92979D;
+}
+
+.inner-cell {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    background-color: #363B42;
+}
+
+.mine-cell {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    background-color: #61666D;
+    user-select: none;
+}
+
+.mine-cell-click {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    background-color: #a80923;
+    user-select: none;
+}
+
+.wrong-flag {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    background-color: #61666D;
+    user-select: none;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    margin-left: 50px;
+}
+
+.row {
+    display: flex;
+    flex: row;
+}
+
+#player-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#enemy-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board-identifier {
+    margin-left: 50px;
+    font-size: 50px;
+}
+
+#flag-counter {
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    align-items: center;
+    justify-items: auto;
+    margin-top: 0;
+}
+
+#flag-symbol {
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+#board-lose {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-left: 50px;
+}
+
+#new-board-btn {
+    font-size: 30px;
+    background-color: #61666D;
+    height: 55px;
+    transition: 50ms;
+}
+
+#new-board-btn:hover {
+    font-size: 35px;
+    background-color: #92979D;
+    cursor: pointer;
+}
+
+#lose-text {
+    text-align: center;
+    font-size: 50px;
+}
+
+/* Page UI Styling */
+
+#navbar {
+    width: 100%;
+}
+
+#navbar-text {
+    font-size: 55px;
+    margin: 0;
+    padding-left: 15px;
+}
+
+#home-footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+#home-footer-content { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    background-color: #363B42;
+    opacity: 70%;
+}
+
+#main-footer { 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    align-self: flex-end;
+    width: 100%;
+    height: 60px;
+    background-color: #363B42;
+    opacity: 70%;
+}
+
+.main-footer-link {
+    background-color: #363B42;
+    text-decoration: none;
+    color: rgb(178, 180, 182);
+    transition: 0.5;
+}
+
+.main-footer-link:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.main-footer-text {
+    background-color: #363B42;
+    user-select: none;
+}
+
+.main-footer-divider {
+    height: 30px;
+    margin: 10px;
+}
+
+#footer-container {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 200px;
+    gap: 10px;
+    padding: 30px;
+    background-color: #92979D;
+}
+
+.text-in-footer-container {
+    background-color: #92979D;
+    margin: 0;
+    font-size: 25px;
+}
+
+.title-in-footer-container {
+    background-color: #92979D;
+    margin: 0;
+}
+
+.link {
+    text-decoration: none;
+}
+
+#game-link {
+    color: lightblue;
+    background-color: #363B42;
+}
+
+#mine-error-text {
+    font-size: 30px;
+    background-color: #363B42;
+}
+
+#link-div {
+    display: flex;
+    gap: 12px;
+    background-color: #363B42;
+}
+
+.ui-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    gap: 10px;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.name-big {
+    font-size: 80px;
+    user-select: none;
+}
+
+#main-menu-name {
+    font-size: 80px;
+    user-select: none;
+    margin-left: 70px;
+    margin-top: 0;
+}
+
+.text-in-center-box {
+    background-color: #363B42;
+}
+
+.center-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 30px;
+    background-color: #363B42;
+    border-radius: 20px;
+}
+
+.big-button {
+    font-size: 30px;
+    background-color: #61666D;
+    width: 250px;
+    height: 55px;
+    transition: 50ms;
+}
+
+.big-button:hover {
+    font-size: 35px;
+    background-color: #92979D;
+    cursor: pointer;
+}
+
+.small-button {
+    font-size: 23px;
+    background-color: #61666D;
+    width: 130px;
+    height: 45px;
+    transition: 50ms;
+}
+
+.small-button:hover {
+    font-size: 25px;
+    background-color: #92979D;
+    cursor: pointer;
+}
+
+.invalid-button {
+    font-size: 30px;
+    background-color: #3d4144;
+    color: rgba(255, 255, 255, 0.575);
+    width: 250px;
+    height: 55px;
+    transition: 50ms;
+}
+
+.custom-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #363B42;
+    font-size: 40px;
+}
+
+.custom-settings-in-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #363B42;
+}
+
+.center-box-seperator {
+    width: fill;
+}
+
+.text-input-big {
+    text-align: center;
+    height: 50px;
+    width: 300px;
+    font-size: 35px;
+}
+
+.text-input-medium {
+    text-align: center;
+    height: 20px;
+    width: 100px;
+    font-size: 35px;
+}
+
+.text-input-small {
+    text-align: center;
+    height: 20px;
+    width: 70px;
+    font-size: 35px;
+}
+
+.slider-input {
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 0px;  
+  background: #92979D;
+}
+
+.slider-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 0px; 
+  background: white;
+  cursor: pointer;
+}
